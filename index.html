@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugando Por la Paz - Torneo de Fútbol Sub-18</title>
+    <!-- Incluye Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Incluye la fuente Inter de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4; /* Verde claro de Tailwind */
+        }
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/065f46/ffffff?text=Jugando+Por+la+Paz');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Estilo para el scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+        }
+        /* Estilo para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        .modal-content-lg {
+            max-width: 700px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-900">Jugando Por la Paz</a>
+            <div class="space-x-4 hidden md:block">
+                <a href="#inicio" class="text-gray-600 hover:text-green-600 transition duration-300">Inicio</a>
+                <a href="#descripcion" class="text-gray-600 hover:text-green-600 transition duration-300">Descripción</a>
+                <a href="#goleadores" class="text-gray-600 hover:text-green-600 transition duration-300">Goleadores</a>
+                <a href="#tabla-posiciones" class="text-gray-600 hover:text-green-600 transition duration-300">Posiciones</a>
+                <a href="#calendario" class="text-gray-600 hover:text-green-600 transition duration-300">Calendario</a>
+                <a href="#inscripcion" class="text-green-600 font-semibold border-2 border-green-600 px-4 py-2 rounded-full hover:bg-green-600 hover:text-white transition duration-300">Inscríbete</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de Héroe -->
+    <header id="inicio" class="hero-bg bg-green-500 text-white flex items-center justify-center text-center section-padding">
+        <div class="bg-black bg-opacity-50 p-8 rounded-xl shadow-lg mx-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-wide mb-4 animate-pulse">
+                Jugando Por la Paz
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 font-light">
+                Un torneo de fútbol 6 sub-18 para fomentar el compañerismo y la sana competencia.
+            </p>
+            <a href="#inscripcion" class="bg-white text-green-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transform hover:scale-105 transition duration-300">
+                ¡Inscríbete Ahora!
+            </a>
+
+            <!-- Imágenes de jugadores con el logo del torneo -->
+            <div class="flex justify-center items-center mt-8 space-x-4">
+                <img src="https://placehold.co/150x150/065f46/ffffff?text=Logo" alt="Logo del torneo" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full animate-bounce">
+                <img src="https://placehold.co/150x150/065f46/ffffff?text=Balón" alt="Balón de fútbol" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full animate-spin">
+                <img src="https://placehold.co/150x150/065f46/ffffff?text=Trofeo" alt="Trofeo" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full animate-bounce">
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Descripción del Torneo -->
+    <section id="descripcion" class="bg-white section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-700">Descripción del Torneo</h2>
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    El torneo "Jugando Por la Paz" es una iniciativa diseñada para jóvenes de 18 años o menos, con el objetivo de promover valores como el respeto, la amistad y el trabajo en equipo a través del deporte más popular del mundo.
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Creemos que el fútbol es una herramienta poderosa para unir a las personas y construir una comunidad más fuerte. Este torneo no solo se trata de ganar, sino de celebrar la pasión por el juego de una manera pacífica y constructiva.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Tabla de Goleadores -->
+    <section id="goleadores" class="bg-gray-100 section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-700">Tabla de Goleadores</h2>
+            <div id="scorers-table-container" class="overflow-x-auto rounded-xl shadow-md bg-white">
+                <table class="w-full text-left text-sm text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="py-3 px-6 rounded-tl-lg">Posición</th>
+                            <th scope="col" class="py-3 px-6">Jugador</th>
+                            <th scope="col" class="py-3 px-6">Equipo</th>
+                            <th scope="col" class="py-3 px-6 rounded-tr-lg">Goles</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scorers-body">
+                        <!-- Los datos de la tabla se renderizarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="scorers-loading-message" class="bg-white p-6 rounded-xl shadow-md text-center text-gray-500 font-semibold mt-4">Cargando tabla de goleadores...</div>
+        </div>
+    </section>
+
+    <!-- Sección de Tabla de Posiciones -->
+    <section id="tabla-posiciones" class="bg-white section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-700">Tabla de Posiciones</h2>
+            <div id="standings-table-container" class="overflow-x-auto rounded-xl shadow-md bg-white">
+                <table class="w-full text-left text-sm text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="py-3 px-6 rounded-tl-lg">Posición</th>
+                            <th scope="col" class="py-3 px-6">Equipo</th>
+                            <th scope="col" class="py-3 px-6">PJ</th>
+                            <th scope="col" class="py-3 px-6">PG</th>
+                            <th scope="col" class="py-3 px-6">PE</th>
+                            <th scope="col" class="py-3 px-6">PP</th>
+                            <th scope="col" class="py-3 px-6">GF</th>
+                            <th scope="col" class="py-3 px-6">GC</th>
+                            <th scope="col" class="py-3 px-6">DG</th>
+                            <th scope="col" class="py-3 px-6 rounded-tr-lg">Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-body">
+                        <!-- Los datos de la tabla se renderizarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="standings-loading-message" class="bg-white p-6 rounded-xl shadow-md text-center text-gray-500 font-semibold mt-4">Cargando tabla de posiciones...</div>
+        </div>
+    </section>
+
+    <!-- Sección de Calendario de Partidos -->
+    <section id="calendario" class="bg-gray-100 section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-700">Calendario de Partidos</h2>
+            <div id="schedule-container" class="max-w-4xl mx-auto space-y-6">
+                <!-- Los partidos se renderizarán aquí -->
+            </div>
+            <div id="schedule-loading-message" class="bg-white p-6 rounded-xl shadow-md text-center text-gray-500 font-semibold mt-4">Cargando calendario...</div>
+        </div>
+    </section>
+
+    <!-- Sección de Equipos Inscritos -->
+    <section id="equipos-inscritos" class="bg-gray-100 section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-700">Equipos Inscritos</h2>
+            <div class="max-w-3xl mx-auto mb-8">
+                <input type="text" id="teamSearch" placeholder="Buscar equipo..."
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+            </div>
+            <!-- Este div mostrará la lista de equipos cargados desde Firestore -->
+            <div id="registrations-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center text-gray-500 font-semibold">Cargando equipos...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Inscripción -->
+    <section id="inscripcion" class="bg-white section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-700">Formulario de Inscripción</h2>
+            <div class="max-w-xl mx-auto bg-gray-100 p-8 rounded-xl shadow-md">
+                <form id="registrationForm" class="space-y-6">
+                    <div class="form-group">
+                        <label for="teamName" class="block text-gray-700 font-semibold mb-2">Nombre del Equipo</label>
+                        <input type="text" id="teamName" name="teamName" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="captainName" class="block text-gray-700 font-semibold mb-2">Nombre del Capitán</label>
+                        <input type="text" id="captainName" name="captainName" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="block text-gray-700 font-semibold mb-2">Número de Teléfono</label>
+                        <input type="tel" id="phone" name="phone"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentId" class="block text-gray-700 font-semibold mb-2">ID de Pago Móvil / Referencia de Transferencia</label>
+                        <input type="text" id="paymentId" name="paymentId" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="form-group">
+                        <label for="teamLogo" class="block text-gray-700 font-semibold mb-2">URL del Logo del Equipo (Opcional)</label>
+                        <input type="url" id="teamLogo" name="teamLogo"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div class="text-center font-bold text-lg mt-8 mb-4">Jugadores (Mínimo 6)</div>
+                    <div id="players-container" class="space-y-4">
+                        <!-- Initial player fields -->
+                        <div class="player-field-group grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="playerName1" class="block text-gray-700 font-semibold mb-2">Nombre del Jugador</label>
+                                <input type="text" id="playerName1" name="playerName1" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="form-group">
+                                <label for="playerDorsal1" class="block text-gray-700 font-semibold mb-2">Número de Camiseta</label>
+                                <input type="number" id="playerDorsal1" name="playerDorsal1" min="1" max="99" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+                        <div class="player-field-group grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="playerName2" class="block text-gray-700 font-semibold mb-2">Nombre del Jugador</label>
+                                <input type="text" id="playerName2" name="playerName2" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="form-group">
+                                <label for="playerDorsal2" class="block text-gray-700 font-semibold mb-2">Número de Camiseta</label>
+                                <input type="number" id="playerDorsal2" name="playerDorsal2" min="1" max="99" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+                        <div class="player-field-group grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="playerName3" class="block text-gray-700 font-semibold mb-2">Nombre del Jugador</label>
+                                <input type="text" id="playerName3" name="playerName3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="form-group">
+                                <label for="playerDorsal3" class="block text-gray-700 font-semibold mb-2">Número de Camiseta</label>
+                                <input type="number" id="playerDorsal3" name="playerDorsal3" min="1" max="99" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+                        <div class="player-field-group grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="playerName4" class="block text-gray-700 font-semibold mb-2">Nombre del Jugador</label>
+                                <input type="text" id="playerName4" name="playerName4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="form-group">
+                                <label for="playerDorsal4" class="block text-gray-700 font-semibold mb-2">Número de Camiseta</label>
+                                <input type="number" id="playerDorsal4" name="playerDorsal4" min="1" max="99" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+                        <div class="player-field-group grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="playerName5" class="block text-gray-700 font-semibold mb-2">Nombre del Jugador</label>
+                                <input type="text" id="playerName5" name="playerName5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="form-group">
+                                <label for="playerDorsal5" class="block text-gray-700 font-semibold mb-2">Número de Camiseta</label>
+                                <input type="number" id="playerDorsal5" name="playerDorsal5" min="1" max="99" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+                        <div class="player-field-group grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="playerName6" class="block text-gray-700 font-semibold mb-2">Nombre del Jugador</label>
+                                <input type="text" id="playerName6" name="playerName6" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="form-group">
+                                <label for="playerDorsal6" class="block text-gray-700 font-semibold mb-2">Número de Camiseta</label>
+                                <input type="number" id="playerDorsal6" name="playerDorsal6" min="1" max="99" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center space-x-4">
+                        <button type="button" id="addPlayerBtn" class="bg-green-200 text-green-800 font-semibold py-2 px-4 rounded-full hover:bg-green-300 transition duration-300">
+                            Añadir Jugador
+                        </button>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105">
+                            Enviar Inscripción
+                        </button>
+                    </div>
+                </form>
+                <div id="messageBox" class="mt-4 p-4 rounded-lg text-center font-semibold hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Panel de Administración -->
+    <section id="admin-panel" class="bg-white section-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-red-700">Panel de Administración</h2>
+            <div id="admin-login-container" class="max-w-lg mx-auto bg-gray-100 p-8 rounded-xl shadow-md text-center">
+                <p class="text-gray-600 mb-4">Introduce la clave para acceder al panel de administración.</p>
+                <div class="space-y-4">
+                    <input type="password" id="adminPassword" placeholder="Clave" class="w-full px-4 py-2 border rounded-lg">
+                    <button id="adminLoginBtn" class="w-full bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition">Entrar</button>
+                </div>
+                <div id="adminLoginMessage" class="mt-4 text-red-600 font-semibold hidden"></div>
+            </div>
+
+            <div id="admin-content" class="max-w-5xl mx-auto space-y-12 hidden">
+                <!-- Botón para inicializar con datos de ejemplo -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md text-center">
+                    <h3 class="text-2xl font-bold text-center text-red-600 mb-6">Datos de Ejemplo</h3>
+                    <p class="text-gray-600 mb-4">Usa este botón para poblar la base de datos con algunos equipos y resultados de muestra.</p>
+                    <button id="seedDataBtn" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-indigo-700 transition">
+                        Inicializar con datos de ejemplo
+                    </button>
+                    <div id="seedMessage" class="mt-4 p-4 rounded-lg text-center font-semibold hidden"></div>
+                </div>
+
+                <!-- Gestión de Goleadores -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-center text-red-600 mb-6">Gestión de Goleadores</h3>
+                    <form id="topScorerForm" class="space-y-4">
+                        <div class="form-group">
+                            <label for="scorerName" class="block text-gray-700 font-semibold mb-2">Nombre del Jugador</label>
+                            <input type="text" id="scorerName" placeholder="Ej. Juan Pérez" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="scorerTeam" class="block text-gray-700 font-semibold mb-2">Equipo</label>
+                            <select id="scorerTeam" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+                                <option value="" disabled selected>Selecciona un equipo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="scorerGoals" class="block text-gray-700 font-semibold mb-2">Goles</label>
+                            <input type="number" id="scorerGoals" placeholder="Goles" min="0" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <button type="submit" class="w-full bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition">Añadir/Actualizar Goleador</button>
+                    </form>
+                    <div id="topScorerMessage" class="mt-4 p-4 rounded-lg text-center font-semibold hidden"></div>
+                </div>
+
+                <!-- Gestión de Partidos y Actualización Automática de Posiciones -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-center text-red-600 mb-6">Ingresar Resultados de Partidos</h3>
+                    <form id="scheduleForm" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="scheduleTeam1" class="block text-gray-700 font-semibold mb-2">Equipo 1</label>
+                                <select id="scheduleTeam1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" required>
+                                    <option value="" disabled selected>Selecciona un equipo</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="scheduleTeam2" class="block text-gray-700 font-semibold mb-2">Equipo 2</label>
+                                <select id="scheduleTeam2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500" required>
+                                    <option value="" disabled selected>Selecciona un equipo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="score1" class="block text-gray-700 font-semibold mb-2">Goles Equipo 1</label>
+                                <input type="number" id="score1" placeholder="Goles" min="0" class="w-full px-4 py-2 border rounded-lg" required>
+                            </div>
+                            <div>
+                                <label for="score2" class="block text-gray-700 font-semibold mb-2">Goles Equipo 2</label>
+                                <input type="number" id="score2" placeholder="Goles" min="0" class="w-full px-4 py-2 border rounded-lg" required>
+                            </div>
+                        </div>
+                        <input type="text" id="scheduleDate" placeholder="Fecha (ej. Sábado, 25 de septiembre)" required class="w-full px-4 py-2 border rounded-lg">
+                        <input type="text" id="scheduleTime" placeholder="Hora (ej. 10:00 AM)" required class="w-full px-4 py-2 border rounded-lg">
+                        <input type="text" id="scheduleLocation" placeholder="Ubicación (ej. Cancha Principal)" required class="w-full px-4 py-2 border rounded-lg">
+                        <button type="submit" class="w-full bg-red-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-red-700 transition">Guardar Partido y Actualizar Posiciones</button>
+                    </form>
+                    <div id="adminMessage" class="mt-4 p-4 rounded-lg text-center font-semibold hidden"></div>
+                </div>
+
+                <!-- Panel de Partidos para Editar/Eliminar -->
+                <div class="bg-gray-100 p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-center text-red-600 mb-6">Gestionar Calendario</h3>
+                    <div id="admin-schedule-list" class="space-y-4">
+                        <p class="text-center text-gray-500">Cargando partidos...</p>
+                    </div>
+                </div>
+            </div>
+            <div id="sign-out-btn-container" class="text-center mt-8 hidden">
+                <button id="signOutBtn" class="bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition">Cerrar Sesión</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="bg-gray-100 section-padding">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-green-700">Contáctanos</h2>
+            <p class="text-lg text-gray-600 mb-4">
+                Para cualquier pregunta o sugerencia, no dudes en contactarnos.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
+                <a href="https://wa.me/584245914838" target="_blank" class="text-green-600 hover:text-green-800 transition duration-300">WhatsApp</a>
+                <a href="https://www.instagram.com/launelplaza/" target="_blank" class="text-green-600 hover:text-green-800 transition duration-300">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=100087134479816" target="_blank" class="text-green-600 hover:text-green-800 transition duration-300">Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-700 text-white py-6 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-sm">&copy; 2025 Jugando Por la Paz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de confirmación de inscripción -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content text-center">
+            <h3 class="text-xl font-bold mb-4">Inscripción Guardada</h3>
+            <div id="modalMessage" class="p-4 rounded-lg bg-green-200 text-green-800 font-semibold"></div>
+            <button id="closeRegistrationModal" class="mt-4 bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-700 transition">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal para editar partidos -->
+    <div id="editMatchModal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <h3 class="text-xl font-bold mb-4 text-center">Editar Partido</h3>
+            <form id="editMatchForm" class="space-y-4">
+                <input type="hidden" id="editMatchId">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label for="editTeam1" class="block text-gray-700 font-semibold mb-2">Equipo 1</label>
+                        <input type="text" id="editTeam1" class="w-full px-4 py-2 border rounded-lg" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="editTeam2" class="block text-gray-700 font-semibold mb-2">Equipo 2</label>
+                        <input type="text" id="editTeam2" class="w-full px-4 py-2 border rounded-lg" disabled>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="editScore1" class="block text-gray-700 font-semibold mb-2">Goles Equipo 1</label>
+                        <input type="number" id="editScore1" placeholder="Goles" min="0" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <div>
+                        <label for="editScore2" class="block text-gray-700 font-semibold mb-2">Goles Equipo 2</label>
+                        <input type="number" id="editScore2" placeholder="Goles" min="0" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                </div>
+                <input type="text" id="editDate" placeholder="Fecha (ej. Sábado, 25 de septiembre)" required class="w-full px-4 py-2 border rounded-lg">
+                <input type="text" id="editTime" placeholder="Hora (ej. 10:00 AM)" required class="w-full px-4 py-2 border rounded-lg">
+                <input type="text" id="editLocation" placeholder="Ubicación (ej. Cancha Principal)" required class="w-full px-4 py-2 border rounded-lg">
+                <div class="flex justify-center space-x-4 mt-6">
+                    <button type="button" id="cancelEditBtn" class="bg-gray-400 text-white font-bold py-2 px-6 rounded-full hover:bg-gray-500 transition">Cancelar</button>
+                    <button type="submit" class="bg-green-600 text-white font-bold py-2 px-6 rounded-full hover:bg-green-700 transition">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, doc, setDoc, getDoc, getDocs, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables provided by the Canvas environment
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        
+        // References to HTML elements
+        const registrationForm = document.getElementById('registrationForm');
+        const registrationsList = document.getElementById('registrations-list');
+        const teamSearch = document.getElementById('teamSearch');
+        const playersContainer = document.getElementById('players-container');
+        const addPlayerBtn = document.getElementById('addPlayerBtn');
+        const standingsBody = document.getElementById('standings-body');
+        const standingsLoading = document.getElementById('standings-loading-message');
+        const scheduleContainer = document.getElementById('schedule-container');
+        const scheduleLoading = document.getElementById('schedule-loading-message');
+        const adminLoginContainer = document.getElementById('admin-login-container');
+        const adminLoginBtn = document.getElementById('adminLoginBtn');
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const adminLoginMessage = document.getElementById('adminLoginMessage');
+        const adminContent = document.getElementById('admin-content');
+        const scheduleForm = document.getElementById('scheduleForm');
+        const adminMessage = document.getElementById('adminMessage');
+        const signOutBtn = document.getElementById('signOutBtn');
+        const signOutBtnContainer = document.getElementById('sign-out-btn-container');
+        const registrationModal = document.getElementById('registrationModal');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeRegistrationModalBtn = document.getElementById('closeRegistrationModal');
+        const scheduleTeam1Select = document.getElementById('scheduleTeam1');
+        const scheduleTeam2Select = document.getElementById('scheduleTeam2');
+        const adminScheduleList = document.getElementById('admin-schedule-list');
+        const editMatchModal = document.getElementById('editMatchModal');
+        const editMatchForm = document.getElementById('editMatchForm');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
+        const scorersBody = document.getElementById('scorers-body');
+        const scorersLoading = document.getElementById('scorers-loading-message');
+        const topScorerForm = document.getElementById('topScorerForm');
+        const scorerTeamSelect = document.getElementById('scorerTeam');
+        const seedDataBtn = document.getElementById('seedDataBtn');
+        const seedMessage = document.getElementById('seedMessage');
+
+        // Firestore collection paths
+        const publicPath = `/artifacts/${appId}/public/data`;
+        const registrationsCol = collection(db, `${publicPath}/registrations`);
+        const standingsCol = collection(db, `${publicPath}/standings`);
+        const scheduleCol = collection(db, `${publicPath}/schedule`);
+        const scorersCol = collection(db, `${publicPath}/scorers`);
+        
+        let allTeamsList = []; // Array para almacenar los nombres de los equipos inscritos
+        let allTeamStandings = {}; // Objeto para almacenar la tabla de posiciones por equipo
+        let allScorers = []; // Array para almacenar la lista de goleadores
+        let allMatches = []; // Array para almacenar la lista de partidos
+        let isAuthReady = false; // Flag para asegurar que los listeners se configuran solo una vez
+        
+        // Listen for auth state changes and perform initial setup
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                console.log("Authenticated as:", user.uid);
+            } else {
+                console.log("Signing in anonymously...");
+                try {
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                } catch (error) {
+                    console.error("Firebase Auth Error:", error);
+                }
+            }
+            if (!isAuthReady) {
+                isAuthReady = true;
+                setupRealtimeListeners();
+            }
+        });
+
+        // --- Utility Functions ---
+
+        /**
+         * Displays a modal message.
+         * @param {string} message - The message to display.
+         * @param {boolean} isSuccess - True for a success message (green), false for an error (red).
+         */
+        function showMessage(element, message, isSuccess) {
+            element.textContent = message;
+            element.classList.remove('hidden');
+            element.classList.remove('bg-green-200', 'text-green-800', 'bg-red-200', 'text-red-800', 'bg-red-600', 'text-red-600', 'bg-green-600', 'text-green-600');
+            element.classList.add(isSuccess ? 'bg-green-200' : 'bg-red-200');
+            element.classList.add(isSuccess ? 'text-green-800' : 'text-red-800');
+        }
+
+        /**
+         * Shows a modal.
+         * @param {HTMLElement} modalElement - The modal to show.
+         */
+        function showModal(modalElement) {
+            modalElement.style.display = 'flex';
+        }
+
+        /**
+         * Hides a modal.
+         * @param {HTMLElement} modalElement - The modal to hide.
+         */
+        function hideModal(modalElement) {
+            modalElement.style.display = 'none';
+        }
+
+        /**
+         * Populates a select element with team names.
+         * @param {HTMLElement} selectElement - The select element to populate.
+         */
+        function populateTeamSelect(selectElement, teams) {
+            selectElement.innerHTML = '<option value="" disabled selected>Selecciona un equipo</option>';
+            teams.forEach(team => {
+                const option = document.createElement('option');
+                option.value = team;
+                option.textContent = team;
+                selectElement.appendChild(option);
+            });
+        }
+
+        /**
+         * Toggles the loading message visibility.
+         * @param {HTMLElement} loadingElement - The loading message element.
+         * @param {boolean} show - True to show, false to hide.
+         */
+        function toggleLoading(loadingElement, show) {
+            if (show) {
+                loadingElement.classList.remove('hidden');
+            } else {
+                loadingElement.classList.add('hidden');
+            }
+        }
+
+        // --- Real-time Listeners from Firestore ---
+        function setupRealtimeListeners() {
+            if (!isAuthReady) return;
+
+            // Listener for Registered Teams
+            onSnapshot(registrationsCol, (snapshot) => {
+                const registrations = [];
+                snapshot.forEach(doc => {
+                    registrations.push({ id: doc.id, ...doc.data() });
+                });
+                renderRegistrations(registrations);
+                allTeamsList = registrations.map(reg => reg.teamName);
+                populateTeamSelect(scheduleTeam1Select, allTeamsList);
+                populateTeamSelect(scheduleTeam2Select, allTeamsList);
+                populateTeamSelect(scorerTeamSelect, allTeamsList);
+                console.log("Registrations loaded:", allTeamsList);
+            }, (error) => {
+                console.error("Error fetching registrations:", error);
+            });
+
+            // Listener for Standings
+            onSnapshot(standingsCol, (snapshot) => {
+                const standings = [];
+                snapshot.forEach(doc => {
+                    standings.push({ id: doc.id, ...doc.data() });
+                });
+                standings.sort((a, b) => {
+                    if (b.points !== a.points) return b.points - a.points;
+                    return b.goalDifference - a.goalDifference;
+                });
+                renderStandings(standings);
+                toggleLoading(standingsLoading, false);
+                // Store standings for easy lookup
+                allTeamStandings = standings.reduce((acc, curr) => {
+                    acc[curr.teamName] = curr;
+                    return acc;
+                }, {});
+                console.log("Standings loaded.");
+            }, (error) => {
+                console.error("Error fetching standings:", error);
+                toggleLoading(standingsLoading, false);
+            });
+
+            // Listener for Scorers
+            onSnapshot(scorersCol, (snapshot) => {
+                allScorers = [];
+                snapshot.forEach(doc => {
+                    allScorers.push({ id: doc.id, ...doc.data() });
+                });
+                allScorers.sort((a, b) => b.goals - a.goals);
+                renderScorers(allScorers);
+                toggleLoading(scorersLoading, false);
+                console.log("Scorers loaded.");
+            }, (error) => {
+                console.error("Error fetching scorers:", error);
+                toggleLoading(scorersLoading, false);
+            });
+
+            // Listener for Schedule
+            onSnapshot(scheduleCol, (snapshot) => {
+                allMatches = [];
+                snapshot.forEach(doc => {
+                    allMatches.push({ id: doc.id, ...doc.data() });
+                });
+                renderSchedule(allMatches);
+                renderAdminSchedule(allMatches);
+                toggleLoading(scheduleLoading, false);
+                console.log("Schedule loaded.");
+            }, (error) => {
+                console.error("Error fetching schedule:", error);
+                toggleLoading(scheduleLoading, false);
+            });
+        }
+        
+        // --- Render Functions ---
+
+        /**
+         * Renders the list of registered teams.
+         * @param {Array<Object>} registrations - The array of registered team objects.
+         */
+        function renderRegistrations(registrations) {
+            registrationsList.innerHTML = '';
+            const query = teamSearch.value.toLowerCase();
+            const filteredRegistrations = registrations.filter(team =>
+                team.teamName.toLowerCase().includes(query) ||
+                team.players.some(player => player.name.toLowerCase().includes(query))
+            );
+
+            if (filteredRegistrations.length === 0) {
+                registrationsList.innerHTML = `<div class="bg-white p-6 rounded-xl shadow-md text-center text-gray-500 font-semibold md:col-span-2 lg:col-span-3">No hay equipos inscritos que coincidan con la búsqueda.</div>`;
+                return;
+            }
+
+            filteredRegistrations.forEach(reg => {
+                const teamCard = document.createElement('div');
+                teamCard.className = 'bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300';
+                teamCard.innerHTML = `
+                    <div class="flex items-center space-x-4 mb-4">
+                        <img src="${reg.teamLogo || 'https://placehold.co/80x80/cccccc/ffffff?text=Logo'}" alt="Logo del equipo" class="w-16 h-16 rounded-full object-cover border-2 border-green-500">
+                        <h4 class="text-xl font-bold text-green-700">${reg.teamName}</h4>
+                    </div>
+                    <h5 class="font-semibold text-gray-700">Capitán: ${reg.captainName}</h5>
+                    <p class="text-sm text-gray-500">Teléfono: ${reg.phone || 'N/A'}</p>
+                    <div class="mt-4">
+                        <h6 class="font-bold text-sm text-gray-700">Jugadores:</h6>
+                        <ul class="list-disc list-inside text-gray-600 text-sm">
+                            ${reg.players.map(p => `<li>${p.name} (#${p.dorsal || 'N/A'})</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                registrationsList.appendChild(teamCard);
+            });
+        }
+
+        /**
+         * Renders the standings table.
+         * @param {Array<Object>} standings - The array of standings objects.
+         */
+        function renderStandings(standings) {
+            standingsBody.innerHTML = '';
+            if (standings.length === 0) {
+                standingsBody.innerHTML = `<tr><td colspan="10" class="py-4 text-center text-gray-500">No hay datos de posiciones disponibles.</td></tr>`;
+                return;
+            }
+            standings.forEach((s, index) => {
+                const row = standingsBody.insertRow();
+                row.className = 'bg-white border-b hover:bg-gray-50';
+                row.innerHTML = `
+                    <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">${index + 1}</td>
+                    <td class="py-4 px-6">${s.teamName}</td>
+                    <td class="py-4 px-6">${s.played}</td>
+                    <td class="py-4 px-6">${s.wins}</td>
+                    <td class="py-4 px-6">${s.draws}</td>
+                    <td class="py-4 px-6">${s.losses}</td>
+                    <td class="py-4 px-6">${s.goalsFor}</td>
+                    <td class="py-4 px-6">${s.goalsAgainst}</td>
+                    <td class="py-4 px-6">${s.goalDifference}</td>
+                    <td class="py-4 px-6 font-bold text-green-700">${s.points}</td>
+                `;
+            });
+        }
+
+        /**
+         * Renders the top scorers table.
+         * @param {Array<Object>} scorers - The array of scorer objects.
+         */
+        function renderScorers(scorers) {
+            scorersBody.innerHTML = '';
+            if (scorers.length === 0) {
+                scorersBody.innerHTML = `<tr><td colspan="4" class="py-4 text-center text-gray-500">No hay datos de goleadores disponibles.</td></tr>`;
+                return;
+            }
+            scorers.forEach((s, index) => {
+                const row = scorersBody.insertRow();
+                row.className = 'bg-white border-b hover:bg-gray-50';
+                row.innerHTML = `
+                    <td class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">${index + 1}</td>
+                    <td class="py-4 px-6">${s.playerName}</td>
+                    <td class="py-4 px-6">${s.teamName}</td>
+                    <td class="py-4 px-6 font-bold text-green-700">${s.goals}</td>
+                `;
+            });
+        }
+
+        /**
+         * Renders the match schedule.
+         * @param {Array<Object>} matches - The array of match objects.
+         */
+        function renderSchedule(matches) {
+            scheduleContainer.innerHTML = '';
+            if (matches.length === 0) {
+                scheduleContainer.innerHTML = `<div class="bg-white p-6 rounded-xl shadow-md text-center text-gray-500 font-semibold">No hay partidos programados.</div>`;
+                return;
+            }
+            matches.forEach(match => {
+                const isPlayed = match.score1 !== null && match.score2 !== null;
+                const matchDiv = document.createElement('div');
+                matchDiv.className = `bg-white p-6 rounded-xl shadow-md ${isPlayed ? 'border-l-4 border-green-500' : 'border-l-4 border-gray-400'}`;
+                matchDiv.innerHTML = `
+                    <h4 class="text-lg font-bold text-center mb-2">${match.date} - ${match.time}</h4>
+                    <p class="text-sm text-center text-gray-500 mb-4">${match.location}</p>
+                    <div class="flex items-center justify-between text-center">
+                        <div class="w-1/3">
+                            <h5 class="text-lg font-semibold text-green-700">${match.team1}</h5>
+                        </div>
+                        <div class="w-1/3">
+                            <span class="text-2xl font-bold">${isPlayed ? `${match.score1} - ${match.score2}` : 'vs'}</span>
+                        </div>
+                        <div class="w-1/3">
+                            <h5 class="text-lg font-semibold text-green-700">${match.team2}</h5>
+                        </div>
+                    </div>
+                `;
+                scheduleContainer.appendChild(matchDiv);
+            });
+        }
+
+        /**
+         * Renders the admin schedule list with edit/delete buttons.
+         * @param {Array<Object>} matches - The array of match objects.
+         */
+        function renderAdminSchedule(matches) {
+            adminScheduleList.innerHTML = '';
+            if (matches.length === 0) {
+                adminScheduleList.innerHTML = `<p class="text-center text-gray-500">No hay partidos para gestionar.</p>`;
+                return;
+            }
+            matches.forEach(match => {
+                const matchCard = document.createElement('div');
+                matchCard.className = 'bg-white p-4 rounded-lg shadow-sm flex flex-col md:flex-row items-center justify-between';
+                matchCard.innerHTML = `
+                    <div class="flex-grow">
+                        <p class="font-semibold text-gray-800">${match.team1} vs ${match.team2}</p>
+                        <p class="text-sm text-gray-600">${match.date}, ${match.time} en ${match.location}</p>
+                        <p class="text-sm text-gray-600">Resultado: ${match.score1 !== null ? `${match.score1}-${match.score2}` : 'Pendiente'}</p>
+                    </div>
+                    <div class="flex space-x-2 mt-4 md:mt-0">
+                        <button class="edit-btn bg-yellow-500 text-white px-4 py-2 rounded-full text-sm hover:bg-yellow-600 transition" data-id="${match.id}">Editar</button>
+                        <button class="delete-btn bg-red-500 text-white px-4 py-2 rounded-full text-sm hover:bg-red-600 transition" data-id="${match.id}">Eliminar</button>
+                    </div>
+                `;
+                adminScheduleList.appendChild(matchCard);
+            });
+        }
+
+        // --- Event Listeners and Logic ---
+
+        // Registration form submission
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(registrationForm);
+            const teamName = formData.get('teamName').trim();
+            const captainName = formData.get('captainName').trim();
+            const phone = formData.get('phone').trim();
+            const paymentId = formData.get('paymentId').trim();
+            const teamLogo = formData.get('teamLogo').trim() || 'https://placehold.co/150x150/cccccc/ffffff?text=Logo';
+            
+            const players = [];
+            for (let i = 1; i <= playersContainer.children.length; i++) {
+                const playerName = formData.get(`playerName${i}`).trim();
+                const playerDorsal = formData.get(`playerDorsal${i}`).trim();
+                if (playerName) {
+                    players.push({
+                        name: playerName,
+                        dorsal: playerDorsal || null
+                    });
+                }
+            }
+
+            if (players.length < 6) {
+                showMessage(document.getElementById('messageBox'), "Debe inscribir al menos 6 jugadores.", false);
+                return;
+            }
+
+            // Check if team already exists
+            const existingTeam = allTeamsList.find(name => name.toLowerCase() === teamName.toLowerCase());
+            if (existingTeam) {
+                showMessage(document.getElementById('messageBox'), `El equipo "${teamName}" ya se encuentra inscrito.`, false);
+                return;
+            }
+
+            try {
+                // Add registration to Firestore
+                await addDoc(registrationsCol, { teamName, captainName, phone, paymentId, teamLogo, players, timestamp: new Date() });
+                
+                // Add new team to standings collection with default values
+                const teamStandingsDoc = doc(db, `${publicPath}/standings`, teamName);
+                await setDoc(teamStandingsDoc, {
+                    teamName: teamName,
+                    played: 0,
+                    wins: 0,
+                    draws: 0,
+                    losses: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0,
+                    goalDifference: 0,
+                    points: 0
+                });
+
+                showMessage(modalMessage, `¡El equipo "${teamName}" ha sido inscrito exitosamente!`, true);
+                showModal(registrationModal);
+                registrationForm.reset();
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                showMessage(document.getElementById('messageBox'), "Error al guardar la inscripción. Inténtalo de nuevo.", false);
+            }
+        });
+        
+        // Add player button
+        let playerCount = 6; // Start with 6 players already in the HTML
+        addPlayerBtn.addEventListener('click', () => {
+            if (playerCount >= 10) {
+                showMessage(document.getElementById('messageBox'), "Máximo de 10 jugadores alcanzado.", false);
+                return;
+            }
+            playerCount++;
+            const playerDiv = document.createElement('div');
+            playerDiv.className = 'player-field-group grid grid-cols-2 gap-4';
+            playerDiv.innerHTML = `
+                <div class="form-group">
+                    <label for="playerName${playerCount}" class="block text-gray-700 font-semibold mb-2">Nombre del Jugador</label>
+                    <input type="text" id="playerName${playerCount}" name="playerName${playerCount}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                </div>
+                <div class="form-group">
+                    <label for="playerDorsal${playerCount}" class="block text-gray-700 font-semibold mb-2">Número de Camiseta</label>
+                    <input type="number" id="playerDorsal${playerCount}" name="playerDorsal${playerCount}" min="1" max="99" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                </div>
+            `;
+            playersContainer.appendChild(playerDiv);
+            document.getElementById('messageBox').classList.add('hidden');
+        });
+        
+        // Close registration modal
+        closeRegistrationModalBtn.addEventListener('click', () => {
+            hideModal(registrationModal);
+        });
+
+        // Team search functionality
+        teamSearch.addEventListener('input', (e) => {
+            renderRegistrations(allTeamsList.map(teamName => {
+                return {
+                    teamName,
+                    players: [{name: "Jugador 1"}],
+                    captainName: "Capitán",
+                    phone: "",
+                    teamLogo: ""
+                };
+            })); // A quick mock for filtering
+            renderRegistrations(allTeamsList.map(teamName => {
+                const reg = registrations.find(r => r.teamName === teamName);
+                return reg ? { id: reg.id, ...reg } : null;
+            }).filter(Boolean));
+        });
+
+        // Admin Login
+        adminLoginBtn.addEventListener('click', () => {
+            const password = adminPasswordInput.value;
+            if (password === 'admin123') { // Hardcoded password for demonstration
+                adminLoginContainer.classList.add('hidden');
+                adminContent.classList.remove('hidden');
+                signOutBtnContainer.classList.remove('hidden');
+                adminLoginMessage.classList.add('hidden');
+                showMessage(adminLoginMessage, "Inicio de sesión exitoso.", true);
+            } else {
+                showMessage(adminLoginMessage, "Clave incorrecta.", false);
+            }
+        });
+
+        // Admin Sign Out
+        signOutBtn.addEventListener('click', () => {
+            adminLoginContainer.classList.remove('hidden');
+            adminContent.classList.add('hidden');
+            signOutBtnContainer.classList.add('hidden');
+            adminPasswordInput.value = '';
+            adminLoginMessage.classList.add('hidden');
+        });
+
+        // Seed Data Button
+        seedDataBtn.addEventListener('click', async () => {
+            if (allTeamsList.length > 0) {
+                showMessage(seedMessage, "Los datos de ejemplo ya han sido cargados.", false);
+                return;
+            }
+
+            const teams = [
+                { name: "Los Guerreros", logo: "https://placehold.co/150x150/FF5733/ffffff?text=Warriors" },
+                { name: "Los Halcones", logo: "https://placehold.co/150x150/33A4FF/ffffff?text=Hawks" },
+                { name: "La Furia Verde", logo: "https://placehold.co/150x150/008000/ffffff?text=Furia" },
+                { name: "Rayos FC", logo: "https://placehold.co/150x150/FFFF00/000000?text=Rayos" }
+            ];
+
+            const playersData = [
+                { name: "Juan Pérez", team: "Los Guerreros", goals: 5 },
+                { name: "Pedro Soto", team: "Los Guerreros", goals: 3 },
+                { name: "Luis García", team: "Los Halcones", goals: 4 },
+                { name: "Ana Ramírez", team: "La Furia Verde", goals: 2 },
+                { name: "José Delgado", team: "Rayos FC", goals: 6 }
+            ];
+
+            const matchesData = [
+                { team1: "Los Guerreros", team2: "Los Halcones", score1: 3, score2: 2, date: "Sábado, 10 de junio", time: "10:00 AM", location: "Cancha Principal" },
+                { team1: "La Furia Verde", team2: "Rayos FC", score1: 1, score2: 1, date: "Sábado, 10 de junio", time: "11:30 AM", location: "Cancha Principal" },
+                { team1: "Los Guerreros", team2: "La Furia Verde", score1: 4, score2: 0, date: "Domingo, 11 de junio", time: "09:00 AM", location: "Cancha Principal" }
+            ];
+            
+            try {
+                for (const team of teams) {
+                    await setDoc(doc(db, `${publicPath}/registrations`, team.name), {
+                        teamName: team.name,
+                        captainName: `Capitán ${team.name}`,
+                        phone: `123456789`,
+                        paymentId: `PAY-${Math.random().toString(36).substr(2, 9)}`,
+                        teamLogo: team.logo,
+                        players: playersData.filter(p => p.team === team.name).map(p => ({name: p.name, dorsal: null})),
+                        timestamp: new Date()
+                    });
+                }
+
+                for (const scorer of playersData) {
+                    await addDoc(scorersCol, {
+                        playerName: scorer.name,
+                        teamName: scorer.team,
+                        goals: scorer.goals
+                    });
+                }
+                
+                // Initialize standings
+                const initialStandings = {};
+                teams.forEach(t => {
+                    initialStandings[t.name] = {
+                        teamName: t.name,
+                        played: 0,
+                        wins: 0,
+                        draws: 0,
+                        losses: 0,
+                        goalsFor: 0,
+                        goalsAgainst: 0,
+                        goalDifference: 0,
+                        points: 0
+                    };
+                });
+                
+                // Process sample matches to update standings
+                for (const match of matchesData) {
+                    const { team1, team2, score1, score2 } = match;
+                    
+                    initialStandings[team1].played += 1;
+                    initialStandings[team2].played += 1;
+                    initialStandings[team1].goalsFor += score1;
+                    initialStandings[team2].goalsFor += score2;
+                    initialStandings[team1].goalsAgainst += score2;
+                    initialStandings[team2].goalsAgainst += score1;
+
+                    if (score1 > score2) {
+                        initialStandings[team1].wins += 1;
+                        initialStandings[team1].points += 3;
+                        initialStandings[team2].losses += 1;
+                    } else if (score2 > score1) {
+                        initialStandings[team2].wins += 1;
+                        initialStandings[team2].points += 3;
+                        initialStandings[team1].losses += 1;
+                    } else {
+                        initialStandings[team1].draws += 1;
+                        initialStandings[team2].draws += 1;
+                        initialStandings[team1].points += 1;
+                        initialStandings[team2].points += 1;
+                    }
+
+                    initialStandings[team1].goalDifference = initialStandings[team1].goalsFor - initialStandings[team1].goalsAgainst;
+                    initialStandings[team2].goalDifference = initialStandings[team2].goalsFor - initialStandings[team2].goalsAgainst;
+
+                    await addDoc(scheduleCol, match);
+                }
+
+                // Save updated standings to Firestore
+                for (const teamName in initialStandings) {
+                    const standingsDoc = doc(db, `${publicPath}/standings`, teamName);
+                    await setDoc(standingsDoc, initialStandings[teamName]);
+                }
+
+                showMessage(seedMessage, "Datos de ejemplo inicializados exitosamente.", true);
+            } catch (error) {
+                console.error("Error seeding data:", error);
+                showMessage(seedMessage, "Error al inicializar los datos de ejemplo.", false);
+            }
+        });
+
+        // Add/Update Top Scorer
+        topScorerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const playerName = document.getElementById('scorerName').value;
+            const teamName = document.getElementById('scorerTeam').value;
+            const goals = parseInt(document.getElementById('scorerGoals').value);
+
+            if (!playerName || !teamName || isNaN(goals)) {
+                showMessage(document.getElementById('topScorerMessage'), "Por favor, completa todos los campos.", false);
+                return;
+            }
+
+            try {
+                // Check if scorer already exists
+                const existingScorer = allScorers.find(s => s.playerName.toLowerCase() === playerName.toLowerCase());
+                if (existingScorer) {
+                    const scorerDoc = doc(db, `${publicPath}/scorers`, existingScorer.id);
+                    await updateDoc(scorerDoc, { playerName, teamName, goals });
+                    showMessage(document.getElementById('topScorerMessage'), `Goleador "${playerName}" actualizado exitosamente.`, true);
+                } else {
+                    await addDoc(scorersCol, { playerName, teamName, goals });
+                    showMessage(document.getElementById('topScorerMessage'), `Goleador "${playerName}" añadido exitosamente.`, true);
+                }
+                topScorerForm.reset();
+            } catch (error) {
+                console.error("Error adding/updating scorer:", error);
+                showMessage(document.getElementById('topScorerMessage'), "Error al guardar el goleador. Inténtalo de nuevo.", false);
+            }
+        });
+
+        // Add/Update Match and Standings
+        scheduleForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const team1 = scheduleTeam1Select.value;
+            const team2 = scheduleTeam2Select.value;
+            const score1 = parseInt(document.getElementById('score1').value);
+            const score2 = parseInt(document.getElementById('score2').value);
+            const date = document.getElementById('scheduleDate').value;
+            const time = document.getElementById('scheduleTime').value;
+            const location = document.getElementById('scheduleLocation').value;
+
+            if (team1 === team2) {
+                showMessage(adminMessage, "No puedes seleccionar el mismo equipo para un partido.", false);
+                return;
+            }
+
+            try {
+                await addDoc(scheduleCol, { team1, team2, score1, score2, date, time, location });
+                
+                // Update standings
+                const updateStandings = async (teamA, scoreA, teamB, scoreB) => {
+                    const standingsDocA = doc(db, `${publicPath}/standings`, teamA);
+                    const standingsDocB = doc(db, `${publicPath}/standings`, teamB);
+
+                    const docSnapA = await getDoc(standingsDocA);
+                    const docSnapB = await getDoc(standingsDocB);
+
+                    if (docSnapA.exists() && docSnapB.exists()) {
+                        const dataA = docSnapA.data();
+                        const dataB = docSnapB.data();
+                        
+                        dataA.played += 1;
+                        dataB.played += 1;
+                        dataA.goalsFor += scoreA;
+                        dataA.goalsAgainst += scoreB;
+                        dataB.goalsFor += scoreB;
+                        dataB.goalsAgainst += scoreA;
+
+                        if (scoreA > scoreB) {
+                            dataA.wins += 1;
+                            dataA.points += 3;
+                            dataB.losses += 1;
+                        } else if (scoreB > scoreA) {
+                            dataB.wins += 1;
+                            dataB.points += 3;
+                            dataA.losses += 1;
+                        } else {
+                            dataA.draws += 1;
+                            dataA.points += 1;
+                            dataB.draws += 1;
+                            dataB.points += 1;
+                        }
+                        
+                        dataA.goalDifference = dataA.goalsFor - dataA.goalsAgainst;
+                        dataB.goalDifference = dataB.goalsFor - dataB.goalsAgainst;
+
+                        await updateDoc(standingsDocA, dataA);
+                        await updateDoc(standingsDocB, dataB);
+                    }
+                };
+                
+                await updateStandings(team1, score1, team2, score2);
+
+                showMessage(adminMessage, "Partido guardado y tabla de posiciones actualizada exitosamente.", true);
+                scheduleForm.reset();
+            } catch (error) {
+                console.error("Error adding match or updating standings:", error);
+                showMessage(adminMessage, "Error al guardar el partido o actualizar las posiciones.", false);
+            }
+        });
+        
+        // Handle edit/delete buttons in admin schedule list
+        adminScheduleList.addEventListener('click', async (e) => {
+            if (e.target.classList.contains('delete-btn')) {
+                const docId = e.target.dataset.id;
+                if (confirm('¿Estás seguro de que quieres eliminar este partido?')) {
+                    try {
+                        const matchDocRef = doc(db, `${publicPath}/schedule`, docId);
+                        const matchData = allMatches.find(m => m.id === docId);
+                        
+                        // Reverse standings update
+                        if (matchData) {
+                            const { team1, team2, score1, score2 } = matchData;
+                            const updateStandings = async (teamA, scoreA, teamB, scoreB) => {
+                                const standingsDocA = doc(db, `${publicPath}/standings`, teamA);
+                                const standingsDocB = doc(db, `${publicPath}/standings`, teamB);
+                                const docSnapA = await getDoc(standingsDocA);
+                                const docSnapB = await getDoc(standingsDocB);
+                                if (docSnapA.exists() && docSnapB.exists()) {
+                                    const dataA = docSnapA.data();
+                                    const dataB = docSnapB.data();
+                                    dataA.played -= 1;
+                                    dataB.played -= 1;
+                                    dataA.goalsFor -= scoreA;
+                                    dataA.goalsAgainst -= scoreB;
+                                    dataB.goalsFor -= scoreB;
+                                    dataB.goalsAgainst -= scoreA;
+                                    if (scoreA > scoreB) {
+                                        dataA.wins -= 1;
+                                        dataA.points -= 3;
+                                        dataB.losses -= 1;
+                                    } else if (scoreB > scoreA) {
+                                        dataB.wins -= 1;
+                                        dataB.points -= 3;
+                                        dataA.losses -= 1;
+                                    } else {
+                                        dataA.draws -= 1;
+                                        dataA.points -= 1;
+                                        dataB.draws -= 1;
+                                        dataB.points -= 1;
+                                    }
+                                    dataA.goalDifference = dataA.goalsFor - dataA.goalsAgainst;
+                                    dataB.goalDifference = dataB.goalsFor - dataB.goalsAgainst;
+                                    await updateDoc(standingsDocA, dataA);
+                                    await updateDoc(standingsDocB, dataB);
+                                }
+                            };
+                            await updateStandings(team1, score1, team2, score2);
+                        }
+                        
+                        await deleteDoc(matchDocRef);
+                        showMessage(adminMessage, "Partido eliminado y tabla de posiciones revertida exitosamente.", true);
+                    } catch (error) {
+                        console.error("Error deleting document:", error);
+                        showMessage(adminMessage, "Error al eliminar el partido. Inténtalo de nuevo.", false);
+                    }
+                }
+            } else if (e.target.classList.contains('edit-btn')) {
+                const docId = e.target.dataset.id;
+                const matchToEdit = allMatches.find(m => m.id === docId);
+                if (matchToEdit) {
+                    document.getElementById('editMatchId').value = matchToEdit.id;
+                    document.getElementById('editTeam1').value = matchToEdit.team1;
+                    document.getElementById('editTeam2').value = matchToEdit.team2;
+                    document.getElementById('editScore1').value = matchToEdit.score1;
+                    document.getElementById('editScore2').value = matchToEdit.score2;
+                    document.getElementById('editDate').value = matchToEdit.date;
+                    document.getElementById('editTime').value = matchToEdit.time;
+                    document.getElementById('editLocation').value = matchToEdit.location;
+                    showModal(editMatchModal);
+                }
+            }
+        });
+        
+        // Edit match form submission
+        editMatchForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const docId = document.getElementById('editMatchId').value;
+            const newScore1 = parseInt(document.getElementById('editScore1').value);
+            const newScore2 = parseInt(document.getElementById('editScore2').value);
+            const newDate = document.getElementById('editDate').value;
+            const newTime = document.getElementById('editTime').value;
+            const newLocation = document.getElementById('editLocation').value;
+
+            const oldMatch = allMatches.find(m => m.id === docId);
+
+            if (!oldMatch) {
+                showMessage(adminMessage, "Error: Partido no encontrado.", false);
+                return;
+            }
+
+            try {
+                // Reverse old standings changes
+                const { team1, team2, score1, score2 } = oldMatch;
+                const standingsDoc1 = doc(db, `${publicPath}/standings`, team1);
+                const standingsDoc2 = doc(db, `${publicPath}/standings`, team2);
+
+                const getStandingsData = async (teamName) => {
+                    const docSnap = await getDoc(doc(db, `${publicPath}/standings`, teamName));
+                    return docSnap.exists() ? docSnap.data() : null;
+                };
+
+                const data1 = await getStandingsData(team1);
+                const data2 = await getStandingsData(team2);
+
+                // Reverse old results
+                data1.played -= 1;
+                data2.played -= 1;
+                data1.goalsFor -= score1;
+                data1.goalsAgainst -= score2;
+                data2.goalsFor -= score2;
+                data2.goalsAgainst -= score1;
+                if (score1 > score2) {
+                    data1.wins -= 1;
+                    data1.points -= 3;
+                    data2.losses -= 1;
+                } else if (score2 > score1) {
+                    data2.wins -= 1;
+                    data2.points -= 3;
+                    data1.losses -= 1;
+                } else {
+                    data1.draws -= 1;
+                    data1.points -= 1;
+                    data2.draws -= 1;
+                    data2.points -= 1;
+                }
+                
+                // Add new results
+                data1.played += 1;
+                data2.played += 1;
+                data1.goalsFor += newScore1;
+                data1.goalsAgainst += newScore2;
+                data2.goalsFor += newScore2;
+                data2.goalsAgainst += newScore1;
+                if (newScore1 > newScore2) {
+                    data1.wins += 1;
+                    data1.points += 3;
+                    data2.losses += 1;
+                } else if (newScore2 > newScore1) {
+                    data2.wins += 1;
+                    data2.points += 3;
+                    data1.losses += 1;
+                } else {
+                    data1.draws += 1;
+                    data1.points += 1;
+                    data2.draws += 1;
+                    data2.points += 1;
+                }
+                data1.goalDifference = data1.goalsFor - data1.goalsAgainst;
+                data2.goalDifference = data2.goalsFor - data2.goalsAgainst;
+                
+                await updateDoc(standingsDoc1, data1);
+                await updateDoc(standingsDoc2, data2);
+
+                // Update the match document
+                const matchDocRef = doc(db, `${publicPath}/schedule`, docId);
+                await updateDoc(matchDocRef, {
+                    score1: newScore1,
+                    score2: newScore2,
+                    date: newDate,
+                    time: newTime,
+                    location: newLocation
+                });
+                
+                showMessage(adminMessage, "Partido actualizado exitosamente.", true);
+                hideModal(editMatchModal);
+            } catch (error) {
+                console.error("Error updating match or standings:", error);
+                showMessage(adminMessage, "Error al actualizar el partido. Inténtalo de nuevo.", false);
+            }
+        });
+        
+        // Cancel edit button
+        cancelEditBtn.addEventListener('click', () => {
+            hideModal(editMatchModal);
+        });
+
+    </script>
+</body>
+</html>
